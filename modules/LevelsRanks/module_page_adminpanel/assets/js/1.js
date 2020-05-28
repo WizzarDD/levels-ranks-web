@@ -167,36 +167,30 @@ function action_db_delete_table(id,element) {
     id.closest('tr').remove();
     $("tr." + element).remove();
 }
-let doubleClickedCon = true;
 function addConection(){
-    if(doubleClickedCon){
-        doubleClickedCon = false;
-        $.ajax({
-            url: 'app/modules/module_page_adminpanel/includes/controller.php',
-            type: 'post',
-            data: $('#form-add-conection').serialize()+"&function=add_conection",
-            success: function(response){
-                var jsonData = JSON.parse(response);
-                if (!(typeof jsonData.success === 'undefined')){
-                    note({
-                        content: jsonData.success,
-                        type: 'success',
-                        time: 2
-                    });
-                    setTimeout(function(){window.location = window.location.href.replace(window.location.hash, '#');location.reload(true);
-                } , 2000);
-                }
-                else{
-                    setTimeout(function(){doubleClickedCon = true;} ,1000);
-                    note({
-                        content: jsonData.error,
-                        type: 'error',
-                        time: 4
-                    });
-                }
-            },
-        });
-    }
+    $.ajax({
+        url: 'app/modules/module_page_adminpanel/includes/controller.php',
+        type: 'post',
+        data: $('#form-add-conection').serialize()+"&function=add_conection",
+        success: function(response){
+            var jsonData = JSON.parse(response);
+            if (!(typeof jsonData.success === 'undefined')){
+                note({
+                    content: jsonData.success,
+                    type: 'success',
+                    time: 1
+                });
+                setTimeout(function(){window.location = window.location.href} ,1000);
+            }
+            else{
+                note({
+                    content: jsonData.error,
+                    type: 'error',
+                    time: 4
+                });
+            }
+        },
+    });
 }
 function changeConnection(mod) {
 
@@ -243,7 +237,7 @@ function changeNameModule(){
         db_show[i].classList.add("con_active");
     }
     if (val == 'custom') {
-        document.getElementById('con_mod_name').innerHTML = 'Mod: '+document.getElementById('custom_mod_name').value;
+        document.getElementById('con_mod_name').innerHTML = 'Мод: '+document.getElementById('custom_mod_name').value;
         document.getElementById('con_mod_id').value = document.getElementById('custom_mod_name').value;
     }
 }

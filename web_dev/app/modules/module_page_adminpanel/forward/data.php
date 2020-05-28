@@ -22,7 +22,7 @@
 require MODULES . 'module_page_adminpanel/ext/Admin.php';
 
 // Создаём экземпляр класса для работы с админкой
-$Admin = new Admin ( $General, $Modules, $Auth, $Db, $Translate );
+$Admin = new Admin ( $General, $Modules, $Auth, $Db );
 
 # Настройки модулей
 

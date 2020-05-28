@@ -8,14 +8,17 @@
  */
 // Отключаем вывод ошибок.
 error_reporting(E_ALL);
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 // Ограничиваем время выполнения скрипта.
 set_time_limit(4);
 
 // Нахожение в пространстве LR.
 define('IN_LR', true);
+
+// Версия LR WEB.
+define('VERSION', '0.2.125');
 
 // Основная директория вэб-приложения.
 define('APP', '../../../../app/');
@@ -121,7 +124,7 @@ $Modules        = new \app\ext\Modules       ( $General, $Translate, $Notificati
 $Auth           = new \app\ext\Auth          ( $General, $Db );
 
 // Создаём экземпляр класса для работы с админкой
-$Admin = new Admin ( $General, $Modules, $Auth, $Db, $Translate);
+$Admin = new Admin ( $General, $Modules, $Auth, $Db );
 
 if (isset($_POST['function']) && $_POST['function'] == 'add_conection') {
     $result = $Admin->action_db_add_connection();

@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-header">
-                            <h5 class="badge"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Server')?></h5>
+                            <h5 class="badge">Сервер</h5>
                         </div>
                         <div class="server_form_block">
                             <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Server_name')?></div><input name="server_name_custom" value=""></div>
@@ -24,7 +24,7 @@
                             <h5 class="badge">MySQL</h5>
                         </div>
                         <div class="server_form_block">
-                            <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Stat_Table')?></div>
+                            <div class="input-form"><div class="input_text"><div class="input_text"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Stat_Table')?></div>
                                 <select name="server_stats">
                                     <option style="display:none" value="">-</option>
                                     <?php if ( ! empty( $Db->db_data['LevelsRanks'] ) ):for ( $q = 0, $c = sizeof( $Db->db_data['LevelsRanks'] ); $q < $c; $q++ ):?>
@@ -38,7 +38,7 @@
                         </div>
                         <?php if ( ! empty( $Db->db_data['Vips'] ) ):?>
                         <div class="server_form_block">
-                            <div class="input-form"><div class="input_text"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Vip_Table')?></div>
+                            <div class="input-form"><div class="input_text"><div class="input_text"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Vip_Table')?></div>
                                 <select name="server_vip" onChange="$('.vip_id').css('display','block')">
                                     <option style="display:none" value="">-</option>
                                     <?php for ( $q = 0, $c = sizeof( $Db->db_data['Vips'] ); $q < $c; $q++ ):?>
@@ -104,7 +104,8 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-12">
+    </div>
+<div class="col-md-12">
     <div class="card">
         <div class="card-header">
             <h5 class="badge"><?php echo $Translate->get_translate_module_phrase( 'module_page_adminpanel','_Server_setting')?></h5>
